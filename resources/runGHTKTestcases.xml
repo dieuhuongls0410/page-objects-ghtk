@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="GHTK" parallel="false">
+  <test name="Run on FIREFOX">
+    <classes>
+      <class name="com.GHTK.CreatePackages.Create_Package_01_Normal"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
