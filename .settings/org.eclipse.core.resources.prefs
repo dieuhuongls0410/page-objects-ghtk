@@ -1,4 +1,9 @@
 eclipse.preferences.version=1
+encoding//actions/pageObjects/LoginPageObject.java=UTF-8
+encoding//interfaces/pageUIs/CreatePackagesUI.java=UTF-8
+encoding//interfaces/pageUIs/LoginPageUI.java=UTF-8
 encoding//testcases/com/GHTK/CreatePackages/Create_Package_01_Normal.java=UTF-8
+encoding//testcases/com/GHTK/CreatePackages/Create_Package_01_Xfast.java=UTF-8
 encoding//testcases/com/GHTK/CreatePackages/Create_Package_02_AbstractPage_01.java=UTF-8
 encoding//testcases/com/GHTK/CreatePackages/Create_Package_02_AbstractPage_02.java=UTF-8
+encoding//testcases/com/GHTK/CreatePackages/Create_Package_03_PageObjectPattern.java=UTF-8

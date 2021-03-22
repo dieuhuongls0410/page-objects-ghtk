@@ -54,18 +54,6 @@ public class Create_Package_02_AbstractPage_02 extends AbstractPage {
 //AbstractPage
 		openUrl(driver, "https://khachhang.giaohangtietkiem.vn/khach-hang/dang_nhap");
 		System.out.println("Pre-Condition - Step 1 Get Login page URL");
-//Mo trang dang nhap GHTK
-//		String loginPageUrl = driver.getCurrentUrl();
-//		Assert.assertEquals(loginPageUrl, "https://khachhang.giaohangtietkiem.vn/khach-hang/dang_nhap");
-//		String loginPageTitle = driver.getTitle();
-//		Assert.assertEquals(loginPageTitle, "GHTK - Dịch vụ giao hàng trong ngày chuyên nghiệp");
-// mo trang dang nhap abstractPage
-
-//Dang nhap GHTK
-//		driver.findElement(ShopEmail).sendKeys("huongntd111@ghtk.vn");
-//		driver.findElement(ShopPassword).sendKeys("123456");
-//		driver.findElement(Login).click();
-// login abstractPage
 		sendkeyToElement(driver, "//input[@id='ShopEmail']", "huongntd111@ghtk.vn");
 		sendkeyToElement(driver, "//input[@id='ShopPassword']", "123456");
 		clickToElement(driver, "//span[contains(text(),'Đăng Nhập')]");

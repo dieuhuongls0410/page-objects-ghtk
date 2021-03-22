@@ -39,7 +39,7 @@ public class Create_Package_01_Normal {
 	By NotFreeship = By.id("Package0IsFreeship0");
 	By PickOptionPost = By.xpath("//*[@value='post']");
 	By ListPO = By.xpath("//*[@class='dd-select']");
-
+	
 	@BeforeClass
 	public void beforeClass() {
 		driver = new FirefoxDriver();
