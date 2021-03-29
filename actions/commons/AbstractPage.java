@@ -84,6 +84,12 @@ public class AbstractPage {
 		select.selectByVisibleText(itemText);
 	}
 
+	public String getSelectFirstItemInDropdown(WebDriver driver, String locator) {
+		elements = driver.findElements(By.xpath(locator));
+		elements.get(0).click();
+		return "";
+	}
+
 	public String getSelectItemInDropdown(WebDriver driver, String locator) {
 		element = driver.findElement(By.xpath(locator));
 		select = new Select(element);

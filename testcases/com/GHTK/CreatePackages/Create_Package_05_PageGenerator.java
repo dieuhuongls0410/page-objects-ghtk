@@ -9,6 +9,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import commons.PageGeneratorManager;
 import pageObjects.CreatePackagesObject;
 import pageObjects.ListPackagesObject;
 import pageObjects.LoginPageObject;
@@ -18,7 +20,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
 
 @Test
-public class Create_Package_03_PageObjectPattern {
+public class Create_Package_05_PageGenerator {
 	WebDriver driver;
 	String loginPageUrl, ListPackageUrl, createPackageUrl;
 	LoginPageObject loginPage;
@@ -30,9 +32,7 @@ public class Create_Package_03_PageObjectPattern {
 	public void beforeClass() {
 		driver = new FirefoxDriver();
 		System.out.print(driver);
-		loginPage = new LoginPageObject(driver);
-		listPackage = new ListPackagesObject(driver);
-		createPackage = new CreatePackagesObject(driver);
+		loginPage = PageGeneratorManager.getLoginPage(driver);
 		driver.get("https://khachhang.giaohangtietkiem.vn/khach-hang/dang_nhap");
 		loginPageUrl = loginPage.getCurrentUrl(driver);
 		System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
@@ -40,7 +40,7 @@ public class Create_Package_03_PageObjectPattern {
 		driver.manage().window().maximize();
 
 //		load e to array[] = ....
-		
+
 		username = "huongntd111@ghtk.vn";
 		password = "123456";
 		customertel = "0388722250";
@@ -54,15 +54,14 @@ public class Create_Package_03_PageObjectPattern {
 	public void TC_01_Login() {
 		loginPage.inputToEmailTextbox(username);
 		loginPage.inputToPaswordTextbox(password);
+		createPackage = loginPage.clickToLoginButton();
 		loginPage.clickToLoginButton();
+		
 
 	}
 
 	public void TC_02_Create_Package_Normail_01() {
-		driver.get("https://khachhang.giaohangtietkiem.vn/khach-hang");
-		ListPackageUrl = listPackage.getCurrentUrl(driver);
-		driver.get("https://khachhang.giaohangtietkiem.vn/khach-hang/don-hang/them-don-hang");
-		createPackageUrl = createPackage.getCurrentUrl(driver);
+//		driver.get("https://khachhang.giaohangtietkiem.vn/khach-hang/don-hang/them-don-hang");
 		createPackage.inputToCustomerTelTextbox(customertel);
 		createPackage.inputToCustomerNameTextbox(customername);
 		createPackage.clickToCustomerFirstAdd();
@@ -72,6 +71,7 @@ public class Create_Package_03_PageObjectPattern {
 		createPackage.inputToProductWeight(productweight);
 		createPackage.inputToPickmoneyTextbox(pickmoney);
 		createPackage.clickSubmitpackage();
+		listPackage = createPackage.clickSubmitpackage();
 		if (listPackage.isMessageDisplaySucceed()) {
 			System.out.println("TC_02_Create_Package_Normail_01: successed");
 		} else {

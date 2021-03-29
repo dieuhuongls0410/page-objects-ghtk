@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
+import commons.PageGeneratorManager;
 import pageUIs.LoginPageUI;
 
 public class LoginPageObject extends AbstractPage {
@@ -28,8 +29,9 @@ public LoginPageObject(WebDriver mappingDriver ) {
 		sendkeyToElement(driver, LoginPageUI.USER_PASSWORD_TEXTBOX, password);
 	}
 
-	public void clickToLoginButton() {
+	public CreatePackagesObject clickToLoginButton() {
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
+		return PageGeneratorManager.getCreatePackages(driver);
 		
 	}
 
